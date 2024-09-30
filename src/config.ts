@@ -1,3 +1,4 @@
+import type { GiscusProps } from "@giscus/react";
 import type { Site, SocialObjects } from "./types";
 
 export const SITE: Site = {
@@ -23,6 +24,19 @@ export const LOGO_IMAGE = {
   svg: true,
   width: 216,
   height: 46,
+};
+
+export const GISCUS: GiscusProps = {
+  repo: "reednaa/alexander",
+  repoId: "R_kgDOM5G8cw",
+  category: "Announcements",
+  categoryId: "DIC_kwDOM5G8c84Ci6ij",
+  mapping: "pathname",
+  reactionsEnabled: "1",
+  emitMetadata: "0",
+  inputPosition: "top",
+  lang: "en",
+  loading: "lazy",
 };
 
 export const SOCIALS: SocialObjects = [
