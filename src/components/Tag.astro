@@ -1,10 +1,11 @@
 ---
 export interface Props {
   tag: string;
+  selectedTag?: string;
   size?: "sm" | "lg";
 }
 
-const { tag, size = "sm" } = Astro.props;
+const { tag, selectedTag = '', size = "sm" } = Astro.props;
 ---
 
 <li
@@ -15,7 +16,7 @@ const { tag, size = "sm" } = Astro.props;
   <a
     href={`/tags/${tag}/`}
     transition:name={tag}
-    class={`${size === "sm" ? "text-sm" : "text-lg"} pr-2 group`}
+    class={`${size === "sm" ? "text-sm" : "text-lg"} ${selectedTag === tag ? 'font-bold' : ''} pr-2 group`}
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"

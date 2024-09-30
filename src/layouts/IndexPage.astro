@@ -13,19 +13,23 @@ import getUniqueTags from "@utils/getUniqueTags";
 import Tag from "@components/Tag.astro";
 
 export interface Props {
-  tag?: string;
+  selectedTag?: string;
 }
 
-const { tag } = Astro.props;
+const { selectedTag } = Astro.props;
 
 const posts = await getCollection("blog");
 const tags = getUniqueTags(posts);
+const shownTags = tags.filter(({ tag }) => tag !== selectedTag);
 
 const sortedPosts = getSortedPosts(posts);
 const featuredPosts = sortedPosts.filter(({ data }) => data.featured);
 const recentPosts = sortedPosts.filter(
-  ({ data }) => !data.featured && (tag ? data.tags.indexOf(tag) != -1 : true)
+  ({ data }) =>
+    !data.featured &&
+    (selectedTag ? data.tags.indexOf(selectedTag) !== -1 : true)
 );
+console.log(recentPosts.map(({data}) => data.tags))
 
 const socialCount = SOCIALS.filter(social => social.active).length;
 ---
@@ -34,7 +38,11 @@ const socialCount = SOCIALS.filter(social => social.active).length;
   <Header />
   <main id="main-content">
     <section id="hero">
-      <h1>AMMs & Interopability</h1>
+      {
+        selectedTag 
+          ? <h1 slot="title" transition:name={selectedTag}>{selectedTag}</h1>
+          : <h1> AMMs & Interopability </h1>
+      }
       <a
         target="_blank"
         href="/rss.xml"
@@ -70,7 +78,7 @@ const socialCount = SOCIALS.filter(social => social.active).length;
         )
       }
       <ul>
-        {tags.map(({ tag }) => <Tag {tag} size="lg" />)}
+        {shownTags.map(({ tag }) => <Tag {tag} {selectedTag} size="lg" />)}
       </ul>
     </section>
 
@@ -115,7 +123,7 @@ const socialCount = SOCIALS.filter(social => social.active).length;
       )
     }
     {
-      tag && (
+      selectedTag && (
         <div class="all-posts-btn-wrapper">
           <LinkButton href="/">
             All Posts
