@@ -1,7 +1,7 @@
 ---
 title: Bitcoin is Delightfully Simple!
 author: Alexander Lindgren
-pubDatetime: 2022-10-02T20:20:00+02:00
+pubDatetime: 2024-10-02T20:15:00+02:00
 slug: simple-bitcoin
 featured: false
 draft: false
@@ -25,12 +25,12 @@ Each Bitcoin block contains a blockheader and a list of transaction. The blockhe
 
 If you stop here, you just created an SPV client. Notice how we never verified any transactions and could fully rely on the blockheader. (which is 80 bytes). This is possible because of the trust assumptions of PoW. Using merkle proofs, you can prove that a transaction was included in the Bitcoin blockchain. Notable, such a client requires 69 MB to store all blockheaders. If you instead stored the hashes, you would only require 28 MB. For context, at Solana’s current throughput it would take 4 seconds to post the entire light client on-chain. Let's continue with the block validation.
 
-1. Is the time set correctly?
+4. Is the time set correctly?
 
 Mining pools can now switch over to building on the newly found block. They do this because if this is a valid block, any mining on the previous block is wasted and in the rare event someone got this far in validation and validation fails, they will waste more money than the mining pools. As no transactions have yet to be examined, any blocks mined at this moment will be empty.
 
-1. Does the block's transactions’ hashes generate the merkle root?
-2. Do all inputs refer to unspent outputs, and does all input scripts match the output scripts?
+5. Does the block's transactions’ hashes generate the merkle root?
+6. Do all inputs refer to unspent outputs, and does all input scripts match the output scripts?
 
 We have now fully validated a Bitcoin block. If you read as fast as me, in less than 2 minutes. Isn’t that unbelievable? Satoshi Nakamoto designed this scheme in 2008 and released it on the 3 January 2009, and it has not changed since then.
 
