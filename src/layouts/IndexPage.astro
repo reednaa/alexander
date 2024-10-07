@@ -29,7 +29,6 @@ const recentPosts = sortedPosts.filter(
     !data.featured &&
     (selectedTag ? data.tags.indexOf(selectedTag) !== -1 : true)
 );
-console.log(recentPosts.map(({data}) => data.tags))
 
 const socialCount = SOCIALS.filter(social => social.active).length;
 ---

@@ -1,7 +1,7 @@
 ---
 title: Building Catalyst
 author: Alexander Lindgren
-pubDatetime: 2024-10-07T19:50:00+02:00
+pubDatetime: 2024-10-07T18:50:00+02:00
 slug: building-catalyst
 featured: false
 draft: false
@@ -9,7 +9,7 @@ tags:
   - catalyst
   - amm
 description:
-  How do design a cross-chain AMM by generalising the constant products AMM. This is my journey. 
+  How to design a cross-chain AMM by generalising the constant products AMM. This is my journey. 
 ---
 
 My journey to building [CatalystAMM](https://catalyst.exchange) and completing the generalization of the constant product AMMs has origins in 2017.
