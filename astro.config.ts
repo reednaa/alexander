@@ -7,7 +7,8 @@ import sitemap from "@astrojs/sitemap";
 import { SITE } from "./src/config";
 
 import remarkMath from "remark-math";
-import rehypeKatex from "rehype-katex";
+import rehypeMathjax from "rehype-mathjax/chtml";
+
 
 // https://astro.build/config
 export default defineConfig({
@@ -30,7 +31,12 @@ export default defineConfig({
         },
       ],
     ],
-    rehypePlugins: [rehypeKatex],
+    rehypePlugins: [[rehypeMathjax,{
+      scale: 4,
+      chtml: {
+        fontURL: 'https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/output/chtml/fonts/woff-v2',
+      },
+    },]],
     shikiConfig: {
       // For more themes, visit https://shiki.style/themes
       themes: { light: "min-light", dark: "night-owl" },

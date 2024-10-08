@@ -25,12 +25,18 @@ Shortly after Bancor’s ICO [Vitalik](https://vitalik.eth.limo) commented on th
 What makes the constant product AMM so ingenious? It has an important and unique property: The price function slope is – relative to balances – constant everywhere. In other words, if you want to buy a constant percentage of the vault twice, say $1\%$, it will also cost you a constant percentage of the vault, in your case $1.0101\%$, regardless of the current vault state. This property effectively lets a single deposit of $100$ USDC and $100$ Tokens market make forever, for all prices. It is easy to prove:
 
 Establish the trading equation: 
-$$X · Y = k = (X + x) \cdot (Y - y) ⇒ y = \frac{Y · x}{X + x}$$
+
+$$
+X · Y = k = (X + x) \cdot (Y - y) ⇒ y = \frac{Y · x}{X + x}
+$$
 
 Let's define the percentage relationship: $x = X \cdot a$ and $y = Y \cdot b$.
 
-Solving for $b$ ⇒
-$$Y · b = \frac{Y \cdot X \cdot a}{X + X \cdot a} ⇒ b = \frac{a}{1 + a}$$
+Solving for $b$
+
+$$
+Y · b = \frac{Y \cdot X \cdot a}{X + X \cdot a} ⇒ b = \frac{a}{1 + a}
+$$
 
 This property was important for the first generation of DeFi and is still important for long tail assets that would otherwise have trouble finding a market. It is a promise that as long as you can get people to provide liquidity for a token – and not withdraw it – you are guaranteed to always have a market for your token.
 
@@ -39,11 +45,19 @@ This property was important for the first generation of DeFi and is still import
 I am fascinated that such simple mathematics leads to these beautiful results, and I wanted to do more. Specifically, I had my cross-hair on a cross-chain AMM. I love integrations – no wonder given my Insurance Mathematics background – and I thought why not get inspiration from Lebesgue integrals.
 
 The idea is simple, assume that you have a value function $P(u)$ that describes how much you value $1$ token given you have $u$ tokens. Assume you have $X$ tokens, then we can describe the value of a change, $x$, in your portfolio as: $\int_X^{X+x} P(u)\ du$. If you paired 2 such integrations together, you would get: 
-$$\int_X^{X+x} P(u) \ du = ∫_{Y-y}^Y P(u) \ du$$
+
+$$
+\int_X^{X+x} P(u) \ du = \int_{Y-y}^Y P(u) \ du
+$$
 
 Notice how each side of the equation is independent of the other side!
 
-If we use $P(u) = \frac{1}{u}$, the equation becomes $\ln(X+x)-\ln(X)=\ln(Y)-\ln(Y-y)$ and solved for $y$ results in the equation $$y = \frac{Y · x}{X + x}$$
+If we use $P(u) = \frac{1}{u}$, the equation becomes $\ln(X+x)-\ln(X)=\ln(Y)-\ln(Y-y)$ and solved for $y$ results in the equation 
+
+$$
+y = \frac{Y · x}{X + x}
+$$
+
 We just discovered that you can write the constant product AMM as 2 independent equations that can be computed on 2 different chains. The last argument to seal the deal, the one Vitalik described in **On Path Independence**, is very simple. It is given to us for free. Integrals are by definition path independent as long as the integrant is continuous (*a.e.*) which $P(u) = \frac{1}{u}$ is!
 
 ### On Integrals
