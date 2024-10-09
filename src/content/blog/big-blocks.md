@@ -1,5 +1,5 @@
 ---
-title: An Argument for more than Big Blocks.
+title: An Argument for more than Big Blocks
 author: Alexander Lindgren
 pubDatetime: 2024-10-09T18:00:00+02:00
 slug: big-blocks
