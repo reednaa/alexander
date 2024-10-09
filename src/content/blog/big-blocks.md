@@ -33,5 +33,7 @@ For the same reasons, I believe Ethereum should scale as performance increases. 
 Each protocol has chosen different ways to scale. Solana wants to be a be-all and end-all blockchain for compute by being on the bleeding edge. Bitcoin is hyper conservative such that if you build something on it, it should remain working as long as Bitcoin does. Ethereum is a general purpose VM that can be used to build almost anything on top, including rollups.
 
 I don't believe Solana's path is the right one. Home validators / node runners are dedicated supporters that will fight for your chain. Solana validators is an exclusive and expensive club that you can't just easily join.
+
 I don't believe Bitcoin's path is the right one. Being hyper conservative, including not even adopting small soft forks like OP_CAT activation, is detrimental to adoption as it limits what can be built.
+
 I believe Ethereum's path is the right one. Every single home staker is someone that will always favor Ethereum over competitors. Not only do they know ever so slightly more about how Ethereum works, they are also activly contributing to Ethereum being decentralised. That makes them proud.
