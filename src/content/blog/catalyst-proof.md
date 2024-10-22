@@ -7,6 +7,7 @@ featured: false
 draft: false
 tags:
   - catalyst
+  - amm
 description:
   Proving that Catalyst is secure for multi asset multi chain pools.
 ---
