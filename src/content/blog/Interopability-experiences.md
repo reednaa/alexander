@@ -1,12 +1,12 @@
 ---
-title: Interopability Integration Experiences
+title: Interoperability Integration Experiences
 author: Alexander Lindgren
 pubDatetime: 2024-09-30T18:00:00+02:00
 slug: interopability-experiences
 featured: false
 draft: false
 tags:
-  - interopability
+  - Interoperability
   - wormhole
   - layerzero
   - chainlink
