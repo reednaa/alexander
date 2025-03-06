@@ -12,6 +12,9 @@ import rehypeMathjax from "rehype-mathjax/chtml";
 
 // https://astro.build/config
 export default defineConfig({
+  redirects: {
+    "/posts/interopability-experiences": "/posts/interoperability-experiences",
+  },
   site: SITE.website,
   integrations: [
     tailwind({
